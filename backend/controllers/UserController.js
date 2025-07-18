@@ -47,8 +47,8 @@ router.post('/login', async (req, res) => {
     res
       .cookie('token', token, {
         httpOnly: true,
-        secure: true, // true in production
-        sameSite: 'lax',
+        secure: true, 
+        sameSite: 'None',
         path:"/"
       })
       .json({ message: 'Logged in', user: { id: user._id, name: user.name } });
@@ -61,14 +61,14 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
-    secure: false, 
-    sameSite: 'lax',
+    secure: true, 
+    sameSite: 'None',
     path:"/"
   });
   res.status(200).json({ message: 'Logged out' });
 });
 
-// Get current user info
+//To get current user info
 router.get('/me', authenticate, (req, res) => {
   res.json({ id: req.userId, username: req.username });
 });
