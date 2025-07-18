@@ -17,7 +17,7 @@ const UserDashboard = () => {
 
   const handleAddTask = async (task) => {
   
-    let response = await axios.post("http://localhost:5000/task", task, { withCredentials: true });
+    let response = await axios.post(`${import.meta.env.VITE_API_BASE}/task`, task, { withCredentials: true });
     if (response.status === 201 || response.status === 200) {
       setTask([...tasks, response.data]);
       setOpenModal(false);
@@ -43,7 +43,7 @@ const UserDashboard = () => {
   };
 
   const handleEditTask = async (updatedTask) => {
-    let response = await axios.put(`http://localhost:5000/task/${updatedTask._id}`, updatedTask, { withCredentials: true });
+    let response = await axios.put(`${import.meta.env.VITE_API_BASE}/task/${updatedTask._id}`, updatedTask, { withCredentials: true });
     if (response.status === 200) {
       setTask(tasks.map(t => (t._id === response.data._id ? response.data : t)));
       setOpenModal(false);
@@ -55,7 +55,7 @@ const UserDashboard = () => {
 
   function getTasks() {
     setLoading(true)
-    axios.get("http://localhost:5000/task", { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_API_BASE}/task`, { withCredentials: true })
       .then((response) => {
         setTask(response.data)
       })
@@ -73,7 +73,7 @@ const UserDashboard = () => {
 
   async function LogoutClick() {
     try {
-      let response = await axios.post("http://localhost:5000/user/logout", {}, { withCredentials: true });
+      let response = await axios.post(`${import.meta.env.VITE_API_BASE}/user/logout`, {}, { withCredentials: true });
       if (response.status === 200) {
         toast.success("Logged out successfully!");
         navigate("/");
@@ -101,7 +101,7 @@ const handleDelete = async (taskId) => {
 
   if (result.isConfirmed) {
     try {
-      await axios.delete(`http://localhost:5000/task/${taskId}`, {
+      await axios.delete(`${import.meta.env.VITE_API_BASE}/task/${taskId}`, {
         withCredentials: true,
       });
 
@@ -116,7 +116,7 @@ const handleDelete = async (taskId) => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:5000/user/me", { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_API_BASE}/user/me`, { withCredentials: true })
       .then(res => {
         setUsername(res.data.username);
       })

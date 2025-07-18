@@ -28,7 +28,7 @@ const HomePage = () => {
             setLoading(true)
             try
             {
-                 const response = await axios.post("http://localhost:5000/user/login",{username,password}, {withCredentials:true})
+                 const response = await axios.post(`${import.meta.env.VITE_API_BASE}/user/login`,{username,password}, {withCredentials:true})
                  if(response.status === 201 || response.status === 200)
                   {
                     setLoading(false)

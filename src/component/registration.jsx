@@ -24,11 +24,11 @@ const UserRegister = () => {
         
         try
         {
-            const response = await axios.post("http://localhost:5000/user/register",values)
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE}/user/register`,values)
             if(response.status === 201 || response.status === 200)
             {
                toast.success("User registration successfull");
-               navigate("/")
+               navigate("/");
             }
             else
             { 
