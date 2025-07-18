@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin:"https://taskmanagersapp.netlify.app/",
+    origin:"https://taskmanagersapp.netlify.app",
     credentials: true,
   })
 );
