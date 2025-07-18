@@ -62,6 +62,7 @@ res.clearCookie("token", {
   secure: true,
   sameSite: "None"
 });
+```
 🧭 Features
 ✅ User Registration & Login
 🛡 JWT Auth via HTTP-only cookies
