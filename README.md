@@ -11,8 +11,8 @@ A secure, full-stack Task Manager application built using the **MERN stack** wit
 
 ## 🌐 Live Demo
 
-- 🔸 Frontend: [your-task-manager.netlify.app](https://your-task-manager.netlify.app)  
-- 🔸 API Base: [task-manager-api.onrender.com](https://task-manager-api.onrender.com)
+- 🔸 Frontend: [your-task-manager.netlify.app](https://taskmanagersapp.netlify.app)  
+- 🔸 API Base: [task-manager-api.onrender.com](https://task-master-l124.onrender.com)
 
 
 ---
