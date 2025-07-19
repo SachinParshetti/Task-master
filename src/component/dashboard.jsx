@@ -123,12 +123,13 @@ const handleDelete = async (taskId) => {
       .catch(err => {
         toast.error("Failed to fetch user info", err);
         setUsername("");
+        navigate("/");
       });
   }, []);
 
   useEffect(() => {
     getTasks();
-  }, [tasks])
+  }, [])
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-200 to-pink-200 p-4">
 

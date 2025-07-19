@@ -5,6 +5,7 @@ import HomePage from './component/home';
 import UserRegister from './component/registration';
 import UserDashboard from './component/dashboard';
 import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './component/protectedRoute';
 
 
 function App() {
@@ -17,7 +18,12 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/register" element={<UserRegister/>}/>
-            <Route path="/dashboard" element={ <UserDashboard/>}/>
+            <Route path="/dashboard" element={ 
+              <PrivateRoute>
+                <UserDashboard/>
+              </PrivateRoute>
+
+            }/>
           </Routes>
 
           <ToastContainer position='top-right' autoClose={2000}>
