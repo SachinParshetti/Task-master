@@ -37,11 +37,13 @@ const HomePage = () => {
                   }
                   else
                   {
+                    setLoading(false)
                     toast.error("Login Failed")
                     navigate("/")
                   }
             }
         catch (error) {
+
         setLoading(false);
         const errMsg = error.response?.data?.error || "Login failed";
         toast.error("Login Failed: " + errMsg);
@@ -129,7 +131,7 @@ const HomePage = () => {
                             onClick={handleSubmit}
 
                         >
-                            Sign In
+                           {Loading ? <span className="animate-spin bi bi-bi-arrow-clockwise text-white"></span > : "Login"} 
                         </button>
 
                         {/* Registration Link btn */}
