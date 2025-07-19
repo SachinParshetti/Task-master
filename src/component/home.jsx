@@ -131,7 +131,7 @@ const HomePage = () => {
                             onClick={handleSubmit}
 
                         >
-                           {Loading ? <span className="animate-spin bi bi-bi-arrow-clockwise text-white"></span > : "Login"} 
+                           {Loading ? <span className="animate-spin bi bi-arrow-clockwise text-white"></span > : "Login"} 
                         </button>
 
                         {/* Registration Link btn */}
