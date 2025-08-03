@@ -7,6 +7,7 @@ import { authenticate } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 // Register
+
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
@@ -27,6 +28,7 @@ router.post('/register', async (req, res) => {
 });
 
 // Login
+
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
     if( !username || !password)
@@ -58,6 +60,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
+
 router.post('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
@@ -69,6 +72,7 @@ router.post('/logout', (req, res) => {
 });
 
 //To get current user info
+
 router.get('/me', authenticate, (req, res) => {
   res.json({ id: req.userId, username: req.username });
 });

@@ -106,7 +106,7 @@ const handleDelete = async (taskId) => {
       });
 
       Swal.fire('Deleted!', 'The task has been removed.', 'success');
-      navigate("/dashboard")
+      setTask(prev => prev.filter(t => t._id !== taskId));
     } catch (error) {
       Swal.fire('Error!', 'Something went wrong.', 'error');
     }
